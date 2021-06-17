@@ -10,14 +10,14 @@ import ShopHeader from "@/components/ShopHeader";
 export default {
 //имя дается компоненту,если мы планируем использовать его в других компонентах-->
 //компоненту добавляется темплейт, дата-->
-    name: 'internetShop',
+    name: 'internetshop',
     components: {ShopHeader},
         data(){
         return{
             tabs: [
-                {name: 'Процессоры', path: '/internetShop/catalog'},
-                {name: 'Принтеры', path: '/internetShop/products'},
-                {name: 'Мониторы', path: '/internetShop/products'}
+                {name: 'Процессоры', path: '/shop/catalog/proc'},
+                {name: 'Принтеры', path: '/shop/catalog/print'},
+                {name: 'Мониторы', path: '/shop/catalog/monitor'}
                 
             ]
         }

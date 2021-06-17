@@ -1,6 +1,6 @@
 <template>
     catalog
-     <div v-for="products in chooseProducts" :key="products.id">
+     <div v-for="products in Monitor" :key="products.id">
         <h2>{{products.title}}</h2>
         <router-link :to="{name: 'products', params: {id: products.id}}">Открыть</router-link>
     
@@ -13,7 +13,8 @@
     export default {
     name: "catalog",
     computed: {
-        ...mapGetters(['chooseProducts'])
+
+        ...mapGetters(['monitor'])
     }
     }
 </script>

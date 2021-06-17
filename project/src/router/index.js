@@ -8,15 +8,15 @@ const routes = [
     
     children: [
       {
-        path: 'catalog', 
-        component: () => import('../views/internetshop/catalog.vue'),
-        children: [
-          {
-            name: 'products', 
-            path: 'products/:id', 
-            component: () => import('../views/internetshop/products.vue') 
-          }
-        ]
+        path: 'catalog/:category', 
+        component: () => import('../views/internetshop/products.vue'),
+        // children: [
+        //   {
+        //     name: 'products', 
+        //     path: 'products/:id', 
+        //     component: () => import('../views/internetshop/products.vue') 
+        //   }
+        // ]
       }
     
   ]

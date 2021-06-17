@@ -15,8 +15,8 @@ export default {
   data() {
     return {
       tabs: [
-        {name: 'Авторизация', path: '/Authorization'},
-        {name: 'Каталог продукции', path: '/Shop'},
+        {name: 'Авторизация', path: '/authorization'},
+        {name: 'Каталог продукции', path: '/shop'},
         {name: 'Корзина', path: '/basket'}
       ],
       background: "LightCyan"

@@ -11,7 +11,8 @@ export default createStore({
               "optio quae quod quos repudiandae rerum, tempore",
           img: "https://picsum.photos/200/300?random=8",
           genre: "HP 1",
-          choose: false
+          category: "proc",
+          choose:true
       },
       {
           id: 2,
@@ -20,6 +21,7 @@ export default createStore({
               "ea fugit inventore laudantium natus",
           img: "https://picsum.photos/200/300?random=5",
           genre: "HP 2",
+          category: "proc",
           choose: false
       },
       {
@@ -28,18 +30,20 @@ export default createStore({
           description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non " +
               "nulla optio quae quod quos repudiandae rerum, tempore, voluptate. laudantium natus, necessitatibus " +
               "non nulla optio quae quod quos repudiandae rerum, tempore, voluptate.",
-          img: "https://picsum.photos/200/300?random=2",
+          img: "kisspng-macbook-pro-mac-mini-macbook-air-computer-desktop-pc-5ab72394637d90.3828615115219516364075.png",
           genre: "HP 1",
-          choose: false
+          category: "monitor",
+          choose: true
       },
       {
           id: 4,
           title: "Necessitatibus",
           description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non" +
               " nulla optio quae quod quos repudiandae rerum, tempore",
-          img: "https://picsum.photos/200/300?random=9",
+          img: "kisspng-macbook-pro-mac-mini-macbook-air-computer-desktop-pc-5ab72394637d90.3828615115219516364075.png",
           genre: "HP 1",
-          choose: true
+          category: "monitor",
+          choose: false
       },
       {
           id: 5,
@@ -48,7 +52,8 @@ export default createStore({
               "fugit inventore laudantium natus",
           img: "https://picsum.photos/200/300?random=10",
           genre: "HP 2",
-          choose: false
+          category: "print",
+          choose: true
       },
       {
           id: 6,
@@ -58,27 +63,38 @@ export default createStore({
               " necessitatibus non nulla optio quae quod quos repudiandae rerum, tempore, voluptate.",
           img: "https://picsum.photos/200/300?random=11",
           genre: "HP 2",
-          choose: true
+          category: "print",
+          choose: false
       }
   ]
   },
   getters: {//методы, которые позволяют получить отфильтрованные данные из state. первым передаетя стейт, потом геттер
-    chooseProducts(state){
-      return state.usersProducts.filter(products => products.choose)//метод перебирает массив и проверяет его этой функцией
-    },
+    // chooseProducts(state){
+    //   return state.usersProducts.filter(products => products. category)//метод перебирает массив и проверяет его этой функцией
+    // },
     chooseProductsCount(state, getters) {//количество прочитанных книг
       return getters.chooseProducts.length;
     },
     productsById: state => (id) => { //в геттер передаем свои данные, функция принимает на вход id и возвращает, в id передаются все данные, которые хотим передать в getter
       return state.usersProducts.filter(products => products.id == id)[0];//0-первый элемент массива
+    },
+    getProc(state){
+      return state.usersProducts.filter(product => product.category == "proc")
+    },
+    getMonitor(state){
+      return state.usersProducts.filter(product => product.category == "monitor")
+    },
+    getPrint(state){
+      return state.usersProducts.filter(product => product.category == "print")
     }
+
   },
   mutations: {//содержат методы, позволяющие изменять состояние хранилища, пишем данные которые меняют данные внутри state (удаление, изменение)
     selectProducts(state, products){//при вызове любого метода из мутации, первым аргументом будет передаваться объект state
       state.select.push(products);
     },
     markSelect(state, index){
-      state.usersProducts[index].choose = true;
+      state.usersProducts[index].choose = false;
     }
   }
 
