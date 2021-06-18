@@ -6,63 +6,60 @@ export default createStore({
     usersProducts: [ 
       {
           id: 1,
-          title: "Lorem ipsum",
-          description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non nulla " +
-              "optio quae quod quos repudiandae rerum, tempore",
-          img: "https://picsum.photos/200/300?random=8",
-          genre: "HP 1",
+          title: "Процессор AMD Ryzen 7 3700X 3.6GHz BOX",
+          description: "Настольный (стационарный) компью́тер, дескто́п (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
+          "для работы в офисе и дома. Термин обычно используется для того, чтобы обозначить вид компьютера и отличить его от компьютеров других типов, например" + 
+          "портативного компьютера, карманного компьютера, встроенного компьютера или сервера.",
+          img: "proc1.png",
           category: "proc",
           choose:true
       },
       {
           id: 2,
-          title: "Aliquam consequatur",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aliquam consequatur " +
-              "ea fugit inventore laudantium natus",
-          img: "https://picsum.photos/200/300?random=5",
-          genre: "HP 2",
+          title: "Процессор Intel Core i3 10100F 3G BOX",
+          description: "Настольный (стационарный) компью́тер, дескто́п (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
+          "для работы в офисе и дома. Термин обычно используется для того, чтобы обозначить вид компьютера и отличить его от компьютеров других типов, например" + 
+          "портативного компьютера, карманного компьютера, встроенного компьютера или сервера.",
+          img: "proc2.png",
           category: "proc",
           choose: false
       },
       {
           id: 3,
-          title: "Laudantium",
-          description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non " +
-              "nulla optio quae quod quos repudiandae rerum, tempore, voluptate. laudantium natus, necessitatibus " +
-              "non nulla optio quae quod quos repudiandae rerum, tempore, voluptate.",
-          img: "kisspng-macbook-pro-mac-mini-macbook-air-computer-desktop-pc-5ab72394637d90.3828615115219516364075.png",
-          genre: "HP 1",
+          title: "Монитор Philips 223V5LSB2",
+          description: "ЖК-дисплей Full HD имеет разрешение 1920x1080р — самое высокое из всех разрешений HD-источников, обеспечивающее" + 
+          "изображение наилучшего качества. Это настоящий дисплей будущего, который может принимать сигналы с разрешением 1080р со всех источников,"+ 
+          "включая самые современные, такие как Blu-ray и современные игровые приставки HD",
+          img: "monitor1.png",
           category: "monitor",
           choose: true
       },
       {
           id: 4,
-          title: "Necessitatibus",
-          description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non" +
-              " nulla optio quae quod quos repudiandae rerum, tempore",
-          img: "kisspng-macbook-pro-mac-mini-macbook-air-computer-desktop-pc-5ab72394637d90.3828615115219516364075.png",
-          genre: "HP 1",
+          title: "Монитор Philips 223V5LSB2",
+          description: "ЖК-дисплей Full HD имеет разрешение 1920x1080р — самое высокое из всех разрешений HD-источников, обеспечивающее" + 
+          "изображение наилучшего качества. Это настоящий дисплей будущего, который может принимать сигналы с разрешением 1080р со всех источников,"+ 
+          "включая самые современные, такие как Blu-ray и современные игровые приставки HD",
+          img: "monitor2.png",
           category: "monitor",
           choose: false
       },
       {
           id: 5,
-          title: "Nulla optio quae quod",
-          description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aliquam consequatur ea " +
-              "fugit inventore laudantium natus",
-          img: "https://picsum.photos/200/300?random=10",
+          title: "Принтер лазерный Pantum P2207",
+          description: "Доступное устройство Canon PIXMA MG2540S обеспечивает непревзойденное качество печати как текстовых" +
+          "документов, так и фотографий. Технология печати FINE обеспечивает насыщенные оттенки черного, яркие цвета и невероятный уровень детализации отпечатков.",
+          img: "print1.png",
           genre: "HP 2",
           category: "print",
           choose: true
       },
       {
           id: 6,
-          title: "Non nulla",
-          description: "A ab aliquam consequatur ea fugit inventore laudantium natus, necessitatibus non " +
-              "nulla optio quae quod quos repudiandae rerum, tempore, voluptate. laudantium natus," +
-              " necessitatibus non nulla optio quae quod quos repudiandae rerum, tempore, voluptate.",
-          img: "https://picsum.photos/200/300?random=11",
-          genre: "HP 2",
+          title: "МФУ лазерный Pantum M6507",
+          description: "Доступное устройство Canon PIXMA MG2540S обеспечивает непревзойденное качество печати как текстовых" +
+          "документов, так и фотографий. Технология печати FINE обеспечивает насыщенные оттенки черного, яркие цвета и невероятный уровень детализации отпечатков.",
+          img: "print2.png",
           category: "print",
           choose: false
       }
@@ -74,6 +71,9 @@ export default createStore({
     // },
     chooseProductsCount(state, getters) {//количество прочитанных книг
       return getters.chooseProducts.length;
+    },
+    getProductByCategory: state => (category) => {
+      return state.usersProducts.filter(products => products.category == category);
     },
     productsById: state => (id) => { //в геттер передаем свои данные, функция принимает на вход id и возвращает, в id передаются все данные, которые хотим передать в getter
       return state.usersProducts.filter(products => products.id == id)[0];//0-первый элемент массива
