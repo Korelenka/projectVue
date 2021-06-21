@@ -3,8 +3,14 @@
 </template>
 
 <script>
+   
     export default {
-    name: "select"
+    name: "prod",
+    computed: {
+        products(){
+            return this.$store.getters.getProductByCategory(this.$route.params.category);
+        }
+    }
     }
 </script>
 

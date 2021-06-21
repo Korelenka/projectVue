@@ -77,15 +77,6 @@ export default createStore({
     },
     productsById: state => (id) => { //в геттер передаем свои данные, функция принимает на вход id и возвращает, в id передаются все данные, которые хотим передать в getter
       return state.usersProducts.filter(products => products.id == id)[0];//0-первый элемент массива
-    },
-    getProc(state){
-      return state.usersProducts.filter(product => product.category == "proc")
-    },
-    getMonitor(state){
-      return state.usersProducts.filter(product => product.category == "monitor")
-    },
-    getPrint(state){
-      return state.usersProducts.filter(product => product.category == "print")
     }
 
   },

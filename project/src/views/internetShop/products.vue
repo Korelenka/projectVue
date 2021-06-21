@@ -4,6 +4,7 @@
    <div v-for="item in  products" :key="item.id">
        <h2>{{item.title}}</h2>
        <p>{{item.description}}</p>
+       <a :href= "`/product/${item.id}`">Перейти</a>
      <div>
                 <img :src="require('@/assets/' + item.img)">
             </div> 
@@ -16,10 +17,10 @@
 
 <script>
 export default {
-    name: "monitor",
+    name: "prod",
     computed: {
         products(){
-            return this.$store.getters.productsById(this.$route.params.category);
+            return this.$store.getters.getProductByCategory(this.$route.params.category);
         }
     }
 //     ,

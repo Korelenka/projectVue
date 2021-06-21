@@ -23,11 +23,15 @@ const routes = [
 }
   ,
   {
+    path: '/product/:id',
+    component: () => import('../views/internetshop/select.vue')
+  },
+  {
     path: '/authorization',
     component: () => import('../views/Authorization.vue')
     
   },
-  
+    
   {
     path: '/basket',
     component: () => import('../views/basket.vue')
