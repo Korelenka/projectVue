@@ -7,21 +7,33 @@ export default createStore({
       {
           id: 1,
           title: "Процессор AMD Ryzen 7 3700X 3.6GHz BOX",
-          description: "Настольный (стационарный) компью́тер, дескто́п (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
+          description: "Настольный (стационарный)  компьютер, десктоп (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
           "для работы в офисе и дома. Термин обычно используется для того, чтобы обозначить вид компьютера и отличить его от компьютеров других типов, например" + 
           "портативного компьютера, карманного компьютера, встроенного компьютера или сервера.",
           img: "proc1.png",
           category: "proc",
+          prise: 15000,
+          slide: [
+        {img:'proc3.png', id: 1}, 
+        {img:'proc4.png', id: 2},
+        {img:'proc5.png', id: 3}
+       ],
           choose:true
       },
       {
           id: 2,
           title: "Процессор Intel Core i3 10100F 3G BOX",
-          description: "Настольный (стационарный) компью́тер, дескто́п (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
+          description: "Настольный (стационарный) компьютер, десктоп (англ. desktop computer) — стационарный персональный компьютер, предназначенный" +
           "для работы в офисе и дома. Термин обычно используется для того, чтобы обозначить вид компьютера и отличить его от компьютеров других типов, например" + 
           "портативного компьютера, карманного компьютера, встроенного компьютера или сервера.",
           img: "proc2.png",
           category: "proc",
+          prise: 20000,
+          slide: [
+           {img:'proc6.png', id: 1}, 
+           {img:'proc5.png', id: 2},
+           {img:'proc4.png', id: 3}
+          ],
           choose: false
       },
       {
@@ -32,6 +44,12 @@ export default createStore({
           "включая самые современные, такие как Blu-ray и современные игровые приставки HD",
           img: "monitor1.png",
           category: "monitor",
+          prise: 20000,
+          slide: [
+           {img:'monitor3.png', id: 1}, 
+           {img:'monitor4.png', id: 2},
+           {img:'monitor5.png', id: 3}
+          ],
           choose: true
       },
       {
@@ -42,6 +60,12 @@ export default createStore({
           "включая самые современные, такие как Blu-ray и современные игровые приставки HD",
           img: "monitor2.png",
           category: "monitor",
+          prise: 20000,
+          slide: [
+           {img:'monitor7.png', id: 1}, 
+           {img:'monitor6.png', id: 2},
+           {img:'monitor5.png', id: 3}
+          ],
           choose: false
       },
       {
@@ -52,6 +76,12 @@ export default createStore({
           img: "print1.png",
           genre: "HP 2",
           category: "print",
+          prise: 20000,
+          slide: [
+           {img:'print3.png', id: 1}, 
+           {img:'print4.png', id: 2},
+           {img:'print5.png', id: 3}
+          ],
           choose: true
       },
       {
@@ -61,6 +91,12 @@ export default createStore({
           "документов, так и фотографий. Технология печати FINE обеспечивает насыщенные оттенки черного, яркие цвета и невероятный уровень детализации отпечатков.",
           img: "print2.png",
           category: "print",
+          prise: 20000,
+          slide: [
+           {img:'print6.png', id: 1}, 
+           {img:'print5.png', id: 2},
+           {img:'print4.png', id: 3}
+          ],
           choose: false
       }
   ]
@@ -82,11 +118,21 @@ export default createStore({
   },
   mutations: {//содержат методы, позволяющие изменять состояние хранилища, пишем данные которые меняют данные внутри state (удаление, изменение)
     selectProducts(state, products){//при вызове любого метода из мутации, первым аргументом будет передаваться объект state
-      state.select.push(products);
+      state.usersProducts.push(products);
     },
     markSelect(state, index){
       state.usersProducts[index].choose = false;
+    },
+    
+  addProducts(state, products) {
+    for (let i = 0; i < products.length; i++) {
+      state.usersProducts.push(products[i]);
     }
+  },
+  addToBasket(state, item) {
+    state.products.push(item);
+    state.chooseProductsCount++;
+}
   }
 
   // actions: {

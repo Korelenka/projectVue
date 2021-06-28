@@ -14,7 +14,7 @@
     name: "catalog",
     computed: {
 
-        ...mapGetters(['prod'])
+        ...mapGetters(['products'])
     }
     }
 </script>
