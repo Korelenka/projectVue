@@ -119,6 +119,7 @@ export default createStore({
   mutations: {//содержат методы, позволяющие изменять состояние хранилища, пишем данные которые меняют данные внутри state (удаление, изменение)
     selectProducts(state, products){//при вызове любого метода из мутации, первым аргументом будет передаваться объект state
       state.usersProducts.push(products);
+      console.log(products);
     },
     markSelect(state, index){
       state.usersProducts[index].choose = false;

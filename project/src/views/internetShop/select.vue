@@ -12,7 +12,7 @@
   </carousel>
     <!-- <a :href= "`/product/${slide.id}`" class ="buttom">Заказать</a> -->
     <td>
-                  <button @click='selectProducts(products)' class="buttom">Купить</button>
+                  <button @click="selectProducts(products)" class="buttom">Купить</button>
                </td>
                <div></div>
 </template>
@@ -35,7 +35,7 @@
   },
   
     methods: {     
-    ...mapMutations(['selectProducts(products)']),
+    ...mapMutations(['selectProducts']),
     
   
     }
